@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Events{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1>Events</h1>
+    <div class="row">
+      {% for event in events %}
+      <div class="card m-2" >
+        <img class="card-img-top" src="{{ event.image.url }}" alt="{{ event.event_name }}" style="width:100%;height:400px">
+        <div class="card-body">
+          <h5 class="card-title">{{ event.event_name }}</h5>
+          <p class="card-text">{{ event.desc }}</p>
+        </div>
+      </div>
+      {% endfor %}
+      
+  
+  
+  </div>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container mt-5">
+        <div class="row justify-content-center mb-4">
+            <div class="col">
+
+                <div class="card bg-success-subtle border-warning">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">Contact Us</h3>
+                        <form method="post" action="{% url 'contact_view' %}">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Your Name</label>
+                                <input type="text" class="form-control" name="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Your Email</label>
+                                <input type="email" class="form-control" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Your Message</label>
+                                <textarea class="form-control" name="message" rows="4" required></textarea>
+                            </div>
+                            <input type="submit" value="Send Message" class="btn btn-primary" style="border-color: #ff6500 !important;;background-color: #ff6500 !important;">
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <h2>Visit Us</h2>
+            <p>Join us at Our Restaurant for a delightful dining experience. We are conveniently located in the heart
+                of the city, making it easy for you to reach us. Come and savor the flavors of our exquisite menu.</p>
+
+            <h3>Address</h3>
+            <p>
+                123 Main Street, Borivali,<br>
+                Mumbai, Maharashtra 12345,<br>
+                India
+            </p>
+
+            <h3>Contact Information</h3>
+            <p>Email: info@ourrestaurant.com<br>
+                Phone: +91 16283 67383</p>
+        </div>
+    </div>
+
+
+    
+
+
+
+{% endblock %}

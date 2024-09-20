@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="row justify-content-evenly mt-2">
+                {% for item  in cart_items  %}
+                
+                <div class="col-lg-5 mt-4">
+                    <div class="card h-80">
+                        <div class="col-12 " >
+                            <img src="{{item.product_id.image.url}}" alt="" class="card-img-top" width="50px" height="300px">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-title">{{item.product_id.product_name}}</p>
+                            <p class="card-text"> <strong>Rs : {{item.product_id.price}} /-</strong> </p>
+                            <p>
+                                <strong>Quantity :  </strong>
+                                <a href="/updateqty/0/{{item.product_id.product_id}}"><button class="btn btn-warning btn-sm">-</button></a>
+                                <input type="number" value="{{item.qty}}">
+                                <a href="/updateqty/1/{{item.product_id.product_id}}"><button class="btn btn-warning btn-sm">+</button></a>
+                            </p>
+                            <div class="row">
+                                <div class="col-6 text-center">
+                                    <a href="/remove_from_cart/{{item.product_id.product_id}}" class="btn btn-warning">Remove</a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <a href="{% url "placeorder" %}" class="btn btn-warning">Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>{% endfor %}
+            </div>
+        </div>
+        <div class="col-lg-3 bg-light p3">
+            <h5 class="bg-warning text-white p-2">Total Amount Section </h5>
+            <p><strong>Total Product ({{items}}):</strong> Rs. {{total}}/-</p>
+        </div>
+    </div>
+</div> 
+
+
+{% endblock %}

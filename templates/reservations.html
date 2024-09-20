@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Reservation{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col">
+
+            <div class="card bg-success-subtle border-warning">
+                <div class="card-body">
+    <h1>Reservation Form</h1>
+    <form method="post" action="{% url 'save_reservation' %}" >
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="name" class="form-control" name="name">
+                        
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
+                                          
+        </div>
+        <div class="mb-3">
+            <label for="date" class="form-label">Date</label>
+            <input type="date" class="form-control" name="date">
+        </div>
+        <div class="mb-3">
+            <label for="time" class="form-label">Time</label>
+            <input type="time" class="form-control" id="time">
+        </div>
+        <div class="mb-3">
+            <label for="num_guests" class="form-label">Number of Guests</label>
+            <input type="numbber" class="form-control" name="num_guests">
+        </div>
+        <input type="submit" class="btn btn-primary" style="border-color: #ff6500 !important;;background-color: #ff6500 !important;">
+    </form>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

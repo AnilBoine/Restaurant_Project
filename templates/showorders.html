@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <table class="table table-border">
+            <tr>
+                <th>Sr.No</th>
+                <th>Order Id</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Amount</th>
+            </tr>
+            {% for x in allorders %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{x.order_id}}</td>
+                <td>{{x.product_id.product_name}}</td>
+                <td>{{x.qty}}</td>
+                <td>{{x.product_id.price}}</td>
+            </tr>
+              
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock %}

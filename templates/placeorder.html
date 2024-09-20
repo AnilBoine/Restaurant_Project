@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="row">
+                {% for item  in cart_items  %}
+                
+                <div class="col-lg-5 mt-4">
+                    <div class="card h-80">
+                        <div class="col-12 mt-3">
+                            <img src="{{item.product_id.image.url}}" alt="" class="card-img-top" width="50px" height="430px">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-title">{{item.product_id.product_name}}</p>
+                            <p class="card-text"> <strong>Rs : {{item.product_id.price}} /-</strong> </p>
+                            <p>
+                                <strong>Quantity : {{item.qty}} </strong>
+                                
+                            </p>
+                            <div class="row">   
+                                <div class="col-lg-6">
+                                    <a href="/remove_from_order/{{item.product_id.product_id}}" class="btn btn-warning">Remove</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>{% endfor %}
+            </div>
+        </div>
+        <div class="col-lg-3 bg-light p3">
+            <h5 class="bg-warning text-white p-2">Total Amount Section </h5>
+            <p><strong>Total Product ({{items}}):</strong> Rs. {{total}}/-</p>
+            <hr>
+            <p><strong>Total Amount : </strong>Rs.{{total}}</p>
+            <a href="{% url "makepayment" %}"><button class="btn btn-warning">Make Payment</button></a>
+        </div>
+    </div>
+</div> 
+
+{% endblock %}
